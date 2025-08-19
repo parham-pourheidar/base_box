@@ -4,28 +4,14 @@ import 'package:flutter/material.dart';
 ///
 /// This widget wraps its [child] with customizable padding, margin, background color, border,
 /// border radius, shadow, gradient, alignment, and interactive features like tap and hover.
-///
-/// Features:
-/// - Handles tap via [onTap].
-/// - Handles hover state changes via [onHover].
-/// - Displays a tooltip with the given [tooltip] message.
-/// - Supports splash and hover colors.
-/// - Customizable size via [height] and [width].
-/// - Allows setting padding and margin independently for horizontal and vertical directions.
-/// - Supports border color, width, and radius.
-/// - Supports box shadows and gradients.
-///
-/// Example usage:
-/// BaseBox(
-///   height: 100,
-///   width: 100,
-///   color: Colors.blue,
-///   borderRadius: 12,
-///   onTap: () => print('Tapped!'),
-///   tooltip: 'Tap me',
-///   child: Icon(Icons.touch_app, color: Colors.white),
-/// )
 class BaseBox extends StatelessWidget {
+  /// Creates a [BaseBox] widget.
+  ///
+  /// [child] is the content of the box.
+  /// [height] and [width] set the size of the box.
+  /// [color] sets the background color.
+  /// [borderColor] and [borderWidth] control the border appearance.
+  /// [alignment] aligns the child within the box.
   const BaseBox({
     super.key,
     this.child,
@@ -65,11 +51,43 @@ class BaseBox extends StatelessWidget {
     this.bottomBorder,
     this.clipBehavior = Clip.antiAlias,
   });
+  /// Callback when the box is tapped.
   final Function()? onTap;
+
+  /// Callback when the box is hovered (desktop/web).
   final Function(bool isHovered)? onHover;
+
+  /// The content of the box.
   final Widget? child;
+
+  /// Height of the box.
   final double? height;
+
+  /// Width of the box.
   final double? width;
+
+  /// Border radius of the box.
+  final double radius;
+
+  /// Background color of the box.
+  final Color? color;
+
+  /// Border color of the box.
+  final Color? borderColor;
+
+  /// Border width of the box.
+  final double? borderWidth;
+
+  /// Box shadows.
+  final List<BoxShadow>? boxShadow;
+
+  /// Background gradient.
+  final Gradient? gradient;
+
+  /// Alignment of the child.
+  final Alignment? alignment;
+
+  /// Padding around the child.
   final double? paddingAll;
   final double? paddingHorizontal;
   final double? paddingVertical;
@@ -77,6 +95,8 @@ class BaseBox extends StatelessWidget {
   final double? paddingRight;
   final double? paddingTop;
   final double? paddingBottom;
+
+  /// Margin around the box.
   final double? marginAll;
   final double? marginHorizontal;
   final double? marginVertical;
@@ -84,22 +104,29 @@ class BaseBox extends StatelessWidget {
   final double? marginRight;
   final double? marginTop;
   final double? marginBottom;
-  final double radius;
-  final Color? color;
-  final Color? borderColor;
-  final double? borderWidth;
-  final List<BoxShadow>? boxShadow;
-  final Gradient? gradient;
-  final Alignment? alignment;
+
+  /// Tooltip message.
   final String? tooltip;
+
+  /// Splash color for tap effect.
   final Color? splashColor;
+
+  /// Hover color for desktop/web.
   final Color? hoverColor;
+
+  /// Centers the child by default.
   final bool centerChild;
+
+  /// Makes the box circular if true.
   final bool isCircle;
+
+  /// Individual side borders.
   final BorderSide? leftBorder;
   final BorderSide? rightBorder;
   final BorderSide? topBorder;
   final BorderSide? bottomBorder;
+
+  /// Clip behavior of the container.
   final Clip clipBehavior;
 
   @override
@@ -214,3 +241,16 @@ class BaseBox extends StatelessWidget {
     return null;
   }
 }
+
+/// Example usage:
+///
+/// ```dart
+/// BaseBox(
+///   width: 150,
+///   height: 150,
+///   color: Colors.blue,
+///   borderColor: Colors.black,
+///   borderWidth: 2,
+///   child: const Text('Hello BaseBox', style: TextStyle(color: Colors.white)),
+/// )
+/// ```
