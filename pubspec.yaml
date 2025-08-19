@@ -1,5 +1,6 @@
 name: base_box
-description: "A new Flutter project."
+description: >
+  A customizable Flutter widget for building reusable and consistent UIs with less boilerplate.
 version: 1.0.0
 homepage: https://github.com/parham-pourheidar/base_box
 repository: https://github.com/parham-pourheidar/base_box
