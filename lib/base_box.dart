@@ -104,7 +104,9 @@ class BaseBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return tooltip != null ? Tooltip(message: tooltip, child: _child()) : _child();
+    return tooltip != null
+        ? Tooltip(message: tooltip, child: _child())
+        : _child();
   }
 
   Widget _child() {
@@ -115,7 +117,14 @@ class BaseBox extends StatelessWidget {
     return Material(
       borderRadius: BorderRadius.all(Radius.circular(radius)),
       color: color,
-      child: InkWell(splashColor: splashColor, hoverColor: hoverColor ?? color, onTap: onTap, onHover: onHover, borderRadius: BorderRadius.all(Radius.circular(radius)), child: _container()),
+      child: InkWell(
+        splashColor: splashColor,
+        hoverColor: hoverColor ?? color,
+        onTap: onTap,
+        onHover: onHover,
+        borderRadius: BorderRadius.all(Radius.circular(radius)),
+        child: _container(),
+      ),
     );
   }
 
@@ -127,7 +136,13 @@ class BaseBox extends StatelessWidget {
       height: height,
       width: width,
       alignment: alignment ?? (centerChild ? Alignment.center : null),
-      decoration: BoxDecoration(shape: isCircle ? BoxShape.circle : BoxShape.rectangle, border: _border(), borderRadius: BorderRadius.all(Radius.circular(radius)), boxShadow: boxShadow, gradient: gradient),
+      decoration: BoxDecoration(
+        shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
+        border: _border(),
+        borderRadius: BorderRadius.all(Radius.circular(radius)),
+        boxShadow: boxShadow,
+        gradient: gradient,
+      ),
       child: child,
     );
   }
@@ -136,9 +151,20 @@ class BaseBox extends StatelessWidget {
     if (isCircle == true) {
       return null;
     } else if (borderColor != null || borderWidth != null) {
-      return Border.all(color: borderColor ?? Colors.transparent, width: borderWidth ?? 1);
-    } else if (leftBorder != null || rightBorder != null || topBorder != null || bottomBorder != null) {
-      return Border(right: rightBorder ?? BorderSide.none, left: leftBorder ?? BorderSide.none, top: topBorder ?? BorderSide.none, bottom: bottomBorder ?? BorderSide.none);
+      return Border.all(
+        color: borderColor ?? Colors.transparent,
+        width: borderWidth ?? 1,
+      );
+    } else if (leftBorder != null ||
+        rightBorder != null ||
+        topBorder != null ||
+        bottomBorder != null) {
+      return Border(
+        right: rightBorder ?? BorderSide.none,
+        left: leftBorder ?? BorderSide.none,
+        top: topBorder ?? BorderSide.none,
+        bottom: bottomBorder ?? BorderSide.none,
+      );
     } else {
       return null;
     }
@@ -148,9 +174,20 @@ class BaseBox extends StatelessWidget {
     if (paddingAll != null) {
       return EdgeInsets.all(paddingAll!);
     } else if (paddingVertical != null || paddingHorizontal != null) {
-      return EdgeInsets.symmetric(horizontal: paddingHorizontal ?? 0, vertical: paddingVertical ?? 0);
-    } else if (paddingLeft != null || paddingRight != null || paddingTop != null || paddingBottom != null) {
-      return EdgeInsets.fromLTRB(paddingLeft ?? 0, paddingTop ?? 0, paddingRight ?? 0, paddingBottom ?? 0);
+      return EdgeInsets.symmetric(
+        horizontal: paddingHorizontal ?? 0,
+        vertical: paddingVertical ?? 0,
+      );
+    } else if (paddingLeft != null ||
+        paddingRight != null ||
+        paddingTop != null ||
+        paddingBottom != null) {
+      return EdgeInsets.fromLTRB(
+        paddingLeft ?? 0,
+        paddingTop ?? 0,
+        paddingRight ?? 0,
+        paddingBottom ?? 0,
+      );
     }
     return null;
   }
@@ -159,9 +196,20 @@ class BaseBox extends StatelessWidget {
     if (marginAll != null) {
       return EdgeInsets.all(marginAll!);
     } else if (marginVertical != null || marginHorizontal != null) {
-      return EdgeInsets.symmetric(horizontal: marginHorizontal ?? 0, vertical: marginVertical ?? 0);
-    } else if (marginLeft != null || marginRight != null || marginTop != null || marginBottom != null) {
-      return EdgeInsets.fromLTRB(marginLeft ?? 0, marginTop ?? 0, marginRight ?? 0, marginBottom ?? 0);
+      return EdgeInsets.symmetric(
+        horizontal: marginHorizontal ?? 0,
+        vertical: marginVertical ?? 0,
+      );
+    } else if (marginLeft != null ||
+        marginRight != null ||
+        marginTop != null ||
+        marginBottom != null) {
+      return EdgeInsets.fromLTRB(
+        marginLeft ?? 0,
+        marginTop ?? 0,
+        marginRight ?? 0,
+        marginBottom ?? 0,
+      );
     }
     return null;
   }
