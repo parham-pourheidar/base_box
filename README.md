@@ -27,4 +27,4 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  base_box: ^1.0.0
+  base_box: ^1.0.2

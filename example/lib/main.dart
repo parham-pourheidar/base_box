@@ -19,14 +19,19 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BaseBox(
-      tooltip: 'alarm',
-      borderWidth: 1.8,
-      borderColor: Colors.black,
-      radius: 16,
-      paddingAll: 20,
-      color: Colors.red,
-      child: Icon(Icons.access_alarm),
+    return Scaffold(
+      body: BaseBox(
+        onTap: () {},
+        marginAll: 20,
+        height: 50,
+        width: 50,
+        tooltip: 'alarm',
+        borderWidth: 1.8,
+        borderColor: Colors.black,
+        radius: 16,
+        color: Colors.red,
+        child: Icon(Icons.access_alarm),
+      ),
     );
   }
 }

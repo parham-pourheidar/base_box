@@ -51,6 +51,7 @@ class BaseBox extends StatelessWidget {
     this.bottomBorder,
     this.clipBehavior = Clip.antiAlias,
   });
+
   /// Callback when the box is tapped.
   final Function()? onTap;
 
@@ -131,6 +132,10 @@ class BaseBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Container(margin: _margin(), child: _tooltip());
+  }
+
+  Widget _tooltip() {
     return tooltip != null
         ? Tooltip(message: tooltip, child: _child())
         : _child();
@@ -158,12 +163,12 @@ class BaseBox extends StatelessWidget {
   Container _container() {
     return Container(
       clipBehavior: clipBehavior,
-      margin: _margin(),
       padding: _padding(),
       height: height,
       width: width,
       alignment: alignment ?? (centerChild ? Alignment.center : null),
       decoration: BoxDecoration(
+        color: color,
         shape: isCircle ? BoxShape.circle : BoxShape.rectangle,
         border: _border(),
         borderRadius: BorderRadius.all(Radius.circular(radius)),
